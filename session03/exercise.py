@@ -34,3 +34,17 @@ print (4 > 5 or 3 < 4 and 9 > 8)
 
 #2.4 BOOLEAN Value --> False
 print(not(4>3 and 100 >6))
+
+#3 Formatting Time
+#I used this documentation to help me understand: https://www.tutorialspoint.com/python/python_date_time.htm
+#used the assumption that there are 86,400 seconds in a day
+import time
+localtime = time.localtime(time.time())
+hoursx = localtime[3]
+minutesx = localtime[4]
+secondsx = localtime[5]
+currenttime = hoursx, minutesx, secondsx
+print("The current time is: %s:%s:%s" %(hoursx,minutesx,secondsx))
+ssepoch = time.time()
+dayssepoch = ssepoch / (60*60*24)
+print("Days passed since last epoch (rounded down to the nearest full number): %.0f" % (dayssepoch))

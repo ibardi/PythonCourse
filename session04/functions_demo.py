@@ -56,7 +56,7 @@ def give_me_a_break():
 
 print(give_me_a_break())
 
-#Here the function does not print "another break". I am unsure whether or not this is intentional. 
+#Here the function does not print "another break". This is because the "return" terminates the function.
 
 result = print_twice('Bing')
 print(result)
@@ -73,6 +73,7 @@ def nop():
     pass
 
 #age = int(input())
+age = 21
 if age >= 18:
     pass
 
@@ -84,7 +85,7 @@ def my_absmodz(numenter):
     return output1
 
 inputentered = input("Please enter a number to get its absolute value")
-if isinstance(inputentered, (int, float)):
+if isinstance(inputentered, int) or isinstance(inputentered, float):
     validenter = inputentered
     print(myabsmodz(validenter))
 else:

@@ -55,6 +55,6 @@ def polygon(t,n,length):
     angle = 360.0 / n
     polyline(t,n,length, angle)
 
-polygon(tom, 4, 100)
+#polygon(tom, 4, 100)
 
 turtle.mainloop()

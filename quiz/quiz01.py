@@ -70,6 +70,8 @@ Write a function with loops that computes The sum of all squares between
 1 and n (inclusive).
 """
 
+#THIS WAS MY ORIGINAL SUBMISSION, BUT I KNEW THAT IT DIDN'T WORK PROPERLY. I FIXED IT BETWEEN THE TIME OF ME PRESENTING IT AND SUBMITTING THE QUIZ. 
+"""
 def sum_squares(n):
     iteration = 1
     while iteration < n:
@@ -85,3 +87,13 @@ def sum_squares(n):
 print("Question 3 Check:")
 print(sum_squares(1))
 print(sum_squares(100))
+"""
+
+def sum_squaresfix(n):
+    result = 0
+    for i in range(1,n+1):
+         result = result + (i*i)
+    return result
+
+print(sum_squaresfix(1))
+print(sum_squaresfix(100))

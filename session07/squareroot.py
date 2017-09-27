@@ -46,11 +46,8 @@ while True:
 #Exercise 3
 import math
 
-
-
-
 def mysqrt(a):
-    x = 3/4
+    x = a / 2
     while True:
         y = (x + a/x) / 2
         if y == x:
@@ -61,7 +58,21 @@ def mysqrt(a):
 
 #print("According to Python math, the square root is:", math.sqrt(par))
 
-#Couldn't figure out how to print a proper table, so I did it manually. 
+
+def test_square_root(n):
+    """
+    This function run the function: mysqrt(a) for a range provided by the n-value provided. For example, if n = 4, then the function will
+    run mysqrt(1),mysqrt(2),mysqrt(3),and mysqrt(4). Even whole numbers have been converted to floats with a forced decimal value of 16, to ensure readability.
+    """
+    for n in range(1,n+1):
+        print(n,"  ",'%.16f' % mysqrt(n),"  ",'%.16f' %math.sqrt(n),"  ",abs(mysqrt(n)-math.sqrt(n)))
+
+test_square_root(9)
+
+
+"""
+THIS WAS THE ORIGINAL WAY THAT I DID IT. OBVIOUSLY THIS IS NOT TOO EFFICIENT. I CREATED A FOR LOOP
+AS SEEN ABOVE, THAT SIMPLIFIES THE PROCESS AND ALLOWS FOR THE USER CHOOSE TOP A VALUE. 
 
 print(1.0,mysqrt(1.0),math.sqrt(1.0),abs(mysqrt(1.0)-math.sqrt(1.0)))
 print(2.0,mysqrt(2.0),math.sqrt(2.0),abs(mysqrt(2.0)-math.sqrt(2.0)))
@@ -72,4 +83,4 @@ print(6.0,mysqrt(6.0),math.sqrt(6.0),abs(mysqrt(6.0)-math.sqrt(6.0)))
 print(7.0,mysqrt(7.0),math.sqrt(7.0),abs(mysqrt(7.0)-math.sqrt(7.0)))
 print(8.0,mysqrt(8.0),math.sqrt(8.0),abs(mysqrt(8.0)-math.sqrt(8.0)))
 print(9.0,mysqrt(9.0),math.sqrt(9.0),abs(mysqrt(9.0)-math.sqrt(9.0)))
-print(10.0,mysqrt(10.0),math.sqrt(10.0),abs(mysqrt(1.0)-math.sqrt(10.0)))
+"""

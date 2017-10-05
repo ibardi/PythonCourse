@@ -59,6 +59,3 @@ def avoids(word,forbidden):
 
 print(avoids('Babson','ab'))
 print(avoids('College','ab'))
-
-def find_words_no_vowels():
-    fin = open('words.txt')

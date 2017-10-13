@@ -61,6 +61,7 @@ number_of_a = h.get('a',0)
 print(number_of_e)
 print(number_of_a)
 
+#Exercise 1
 def histogramupdate(st):
     j = dict()
     for element in st.lower():
@@ -158,4 +159,75 @@ json_example = {
 print(json_example['results'][0]['address_components'][0]['long_name'])
 print(json_example['results'][0]['address_components'][5]['long_name'])
 print(json_example['results'][0]['address_components'][5]['short_name'])
+
+
+
+def reverse_lookup(d,v):
+    for k in d:
+        if d[k] == v:
+            return k
+    raise LookupError('Value does not appear in the dictionary')
+
+n = histogram('Massachusetts')
+key = reverse_lookup(n,2)
+print(key)
+
+def invert_dict(d):
+    inverse = dict()
+    for key in d:
+        val = d[key]
+        if val not in inverse:
+            inverse[val] = [key]
+        else:
+            inverse[val].append(key)
+    return inverse
+ 
+hist = histogram('parrot')
+print(hist)
+
+inverse = invert_dict(hist)
+print(inverse)
+
+#Fibonacci Calculated
+def fib(n):
+    global numFibCalls
+    numFibCalls += 1
+    if n == 1:
+        return 1
+    elif n == 2:
+        return 2
+    else:
+        return fib(n - 1) + fib(n - 2)
+
+
+known = {1: 1, 2: 2}
+
+
+def fib_efficient(n):
+    global numFibCalls
+    numFibCalls += 1
+    if n in known:
+        return known[n]
+    else:
+        ans = fib_efficient(n - 1) + fib_efficient(n - 2)
+        known[n] = ans
+        return ans
+
+
+numFibCalls = 0
+fibArg = 10
+
+print(fib(fibArg))
+print('function calls', numFibCalls)
+
+numFibCalls = 0
+
+
+print(fib_efficient(fibArg))
+print('function calls', numFibCalls)
+
+#Exercise 3
+"""
+Global variables are variables that can be called on form outside of the function. Basically when you return x at the end of the function, that becomes global. While not returning the x, just printing it, would keep the variable x as local. We want to use global when we want to use the variable outside of just the one function. 
+"""
 

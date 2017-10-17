@@ -58,6 +58,10 @@ def middle(t):
     return newlist
 
 
+
+
+
+
 def chop(t):
     """Removes the first and last elements of t.
 

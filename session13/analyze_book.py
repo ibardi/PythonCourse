@@ -60,8 +60,11 @@ def most_common(hist):
 
     returns: list of (frequency, word) pairs
     """
-    pass
-
+    t = []
+    for key, value in hist.items():
+        t.append((value,key))
+        t.sort(reverse=True)
+    return t
 
 def print_most_common(hist, num=10):
     """Prints the most commons words in a histgram and their frequencies.
@@ -85,30 +88,33 @@ def random_word(hist):
 
     The probability of each word is proportional to its frequency.
     """
-    pass
-
+    t = []
+    for word, freq in hist.items():
+        t.extend([word] * freq)
+    
+    return random.choice(t)
 
 def main():
     hist = process_file('Pride and Prejudice.txt', skip_header=True)
-    #print(hist)
+    print(hist)
     print('Total number of words:', total_words(hist))
-    # print('Number of different words:', different_words(hist))
+    print('Number of different words:', different_words(hist))
 
-    # t = most_common(hist)
-    # print('The most common words are:')
-    # for freq, word in t[0:20]:
-    #     print(word, '\t', freq)
+    t = most_common(hist)
+    print('The most common words are:')
+    for freq, word in t[0:20]:
+         print(word, '\t', freq)
 
-    # words = process_file('words.txt', skip_header=False)
+    #words = process_file('words.txt', skip_header=False)
 
     # diff = subtract(hist, words)
     # print("The words in the book that aren't in the word list are:")
     # for word in diff.keys():
     #     print(word, end=' ')
 
-    # print("\n\nHere are some random words from the book")
-    # for i in range(100):
-    #     print(random_word(hist), end=' ')
+    print("\n\nHere is a random word:")
+    for i in range(1):
+        print(random_word(hist), end=' ')
 
 
 if __name__ == '__main__':

@@ -1,7 +1,6 @@
 from Point1 import *
 import copy
 
-
 class Circle:
     """Represents a circle.
 
@@ -15,6 +14,9 @@ def point_in_circle(point, circle):
     point: Point object
     circle: Circle object
     """
+    distance = distance_between_points(point,circle.center)
+    print(distance)
+    return distance <= circle.radius
 
 
 
@@ -24,6 +26,25 @@ def rect_in_circle(rect, circle):
     rect: Rectangle object
     circle: Circle object
     """
+    f = copy.copy(rect.corner)
+    print_point(f)
+    if not point_in_circle(f,circle):
+        return False
+
+    f.x -= rect.width
+    print_point(f)
+    if not point_in_circle(f,circle):
+        return False
+
+    f.y -= rect.height
+    print_point(f)
+    if not point_in_circle(f,circle):
+        return False
+
+    p.x -= rect.width
+    print_point(f)
+    if not point_in_circle(f,circle):
+        return False
 
 def rect_circle_overlap(rect, circle):
     """Checks whether any corners of a rect fall in/on a circle.
@@ -31,7 +52,27 @@ def rect_circle_overlap(rect, circle):
     rect: Rectangle object
     circle: Circle object
     """
-    
+    f = copy.copy(rect.corner)
+    print_point(f)
+    if point_in_circle(f,circle):
+        return True
+
+    f.x += rect.width
+    print_point(f)
+    if point_in_circle(f,circle):
+        return True
+
+    f.y -= rect.height
+    print_point(f)
+    if point_in_circle(f,circle):
+        return True
+
+    f.x -= rect.width
+    print_point(f)
+    if point_in_circle(f,circle):
+        return True
+
+    return False
 
 def main():
     box = Rectangle()

@@ -4,19 +4,19 @@ class Time:
     attributes: hour, minute, second
     """
 
-# time = Time()
-# time.hour = 1
-# time.minute = 50
-# time.second = 30
+time = Time()
+time.hour = 1
+time.minute = 50
+time.second = 30
 
-# print(time.hour, time.minute, time.second)
+print(time.hour, time.minute, time.second)
 
-# later = Time()
-# later.hour = time.hour
-# later.minute = time.minute + 5
-# later.second = time.second
+later = Time()
+later.hour = time.hour
+later.minute = time.minute + 5
+later.second = time.second
 
-# print(later.hour, later.minute, later.second)
+print(later.hour, later.minute, later.second)
 
 """"""""""""""""""""""""""""""""""""
 # Exercise 1
@@ -28,9 +28,10 @@ def print_time(t):
 
     t: Time object
     """
+    print('{:02d}:{:02d}:{:02d}' format(t.hour, t.minute, t.second))
 
-# print_time(time)
-# print_time(later)
+print_time(time)
+print_time(later)
 
 
 def is_after(t1, t2):
@@ -154,9 +155,16 @@ def substract_time(t1, t2):
 
     returns: Time
     """
+    result = time_to_int(t1) - time_to_int(t2)
+    return int_to_time(result)
 
-# print_time(substract_time(done, duration))
-# print_time(substract_time(time, later))
+done = Time()
+done.hour, done.minute, done.second = 14, 30, 30
+
+
+
+print_time(substract_time(done, duration))
+print_time(substract_time(time, later))
 
 """"""""""""""""""""""""""""""""""""
 # Exercise 4
@@ -194,5 +202,5 @@ def main():
     print_time(end_time)
 
 
-if __name__ == '__main__':
-    main()
+# if __name__ == '__main__':
+#     main()
